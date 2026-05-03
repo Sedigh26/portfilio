@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sovereign Systems | Developer Portfolio",
-  description: "Senior Frontend Engineer specialized in high-security institutional architecture.",
+  title: "Aboubekrin",
+  description: "Senior Full-Stack Developer specialized in high-security institutional architecture.",
 };
 
 export default function RootLayout({
