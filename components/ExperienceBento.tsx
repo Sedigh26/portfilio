@@ -34,7 +34,7 @@ export function ExperienceBento() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 auto-rows-[300px]"
+          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 md:auto-rows-[300px]"
         >
           {/* Large Card: BCM Project */}
           <motion.div variants={item} className="md:col-span-2 md:row-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between">
@@ -55,21 +55,13 @@ export function ExperienceBento() {
               <p className="text-gray-400 mb-6 max-w-md font-medium leading-relaxed">
                 Architected and developed the BCM-AEMS financial platform featuring Maker-Checker Logic, non-obligatory budget allocation models, and robust PDF export systems.
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {["Laravel 11", "PHP 8.2", "TailwindCSS", "MySQL"].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300">
-                    {tech}
-                  </span>
-                ))}
-              </div>
             </div>
-            
             <Link 
-              href="https://github.com/Sedigh26/bcm-budget-system-case-study" 
+              href="https://github.com/Sedigh26" 
               target="_blank"
-              className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 hover:underline w-fit relative z-10 mt-auto transition-colors"
+              className="mt-auto inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-emerald-400 hover:bg-white/10 transition-colors z-10"
             >
-              Read Case Study <ArrowUpRight size={16} />
+              <ArrowUpRight size={16} />
             </Link>
           </motion.div>
 

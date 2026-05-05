@@ -5,6 +5,7 @@ import { Certifications } from "@/components/Certifications";
 import { TechStack } from "@/components/TechStack";
 import { Timeline } from "@/components/Timeline";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </div>
 
       <Footer />
+      <BackToTop />
     </main>
   );
 }

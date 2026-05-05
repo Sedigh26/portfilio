@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ArrowUpRight, Code, User, Mail } from 'lucide-react';
+import { ArrowUpRight, Code, User, Mail, Download } from 'lucide-react';
 import Link from 'next/link';
 
 function WhatsAppIcon({ size = 24 }: { size?: number }) {
@@ -45,33 +45,35 @@ export function Hero() {
   return (
     <section 
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full text-white overflow-hidden flex flex-col items-center justify-center pt-20"
+      className="relative min-h-screen w-full text-white overflow-hidden flex flex-col items-center justify-center py-20 md:py-0"
     >
       
-      {/* 1. LAYER 1: BOTTOM (Massive Background Text) */}
-      <motion.div 
-        style={mounted ? { x: textX, y: textY } : {}}
-        className="absolute z-0 select-none pointer-events-none flex items-center justify-center w-full top-1/2 -translate-y-1/2"
-      >
-        <motion.h1 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[11vw] md:text-[8vw] lg:text-[7.5vw] font-black leading-none flex gap-3 md:gap-6 tracking-tighter whitespace-nowrap"
+      {/* 1. VISUAL LAYER (Background Text + Image) */}
+      <div className="relative md:absolute inset-0 flex items-center justify-center z-10 w-full mb-12 md:mb-0">
+        
+        {/* Background Name (Layer 0) */}
+        <motion.div 
+          style={mounted ? { x: textX, y: textY } : {}}
+          className="absolute z-0 select-none pointer-events-none flex items-center justify-center w-full top-1/2 -translate-y-1/2 overflow-hidden"
         >
-          <span className="text-outline uppercase">ABOUBEKRIN</span>
-          <span className="text-white uppercase">SEDIGH</span>
-        </motion.h1>
-      </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="text-[15vw] md:text-[8vw] lg:text-[7.5vw] font-black leading-none flex flex-col md:flex-row gap-0 md:gap-6 tracking-tighter whitespace-nowrap opacity-10 md:opacity-100"
+          >
+            <span className="text-outline uppercase">ABOUBEKRIN</span>
+            <span className="text-white uppercase">SEDIGH</span>
+          </motion.h1>
+        </motion.div>
 
-      {/* 2. LAYER 2: MIDDLE (Portrait Image with organic float & parallax) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full flex items-center justify-center pointer-events-none">
+        {/* Profile Image (Layer 1) */}
         <motion.div 
           style={mounted ? { x: imageX, y: imageY } : {}}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]"
+          className="relative z-10 w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]"
         >
           <motion.div
             animate={{ y: [0, -15, 0] }}
@@ -79,7 +81,7 @@ export function Hero() {
             className="w-full h-full relative overflow-hidden rounded-full border border-white/20 shadow-[0_0_50px_rgba(255,255,255,0.05)] bg-[#0a0a0a]"
           >
             <Image 
-              src="/images/hero/professional_headshot.png" 
+              src="/images/hero/hero.jpeg" 
               alt="Aboubekr Sedigh"
               fill
               className="object-cover object-top pointer-events-auto"
@@ -89,39 +91,48 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* 3. LAYER 3: TOP (UI Elements) */}
+      {/* 2. UI LAYER (Info + Socials) */}
       
-      {/* Bottom Left Info */}
+      {/* Info Section (Stacks under image on mobile, Absolute bottom-left on desktop) */}
       <motion.div 
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute bottom-10 left-6 md:bottom-20 md:left-12 z-30 max-w-sm pointer-events-none"
+        className="relative md:absolute md:bottom-10 md:left-12 z-30 flex flex-col items-center md:items-start text-center md:text-left px-6 md:px-0"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading text-white pointer-events-auto drop-shadow-lg">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-white drop-shadow-lg">
           Full-Stack Developer
         </h2>
-        <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 font-medium pointer-events-auto max-w-[280px]">
+        <p className="text-gray-400 text-base md:text-base leading-relaxed mb-8 font-medium max-w-[300px] md:max-w-md">
           Designing and architecting sovereign systems that are secure, scalable, and enterprise-focused.
         </p>
-        <div className="pointer-events-auto">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <Link 
             href="https://github.com/Sedigh26"
             target="_blank"
-            className="flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all duration-300 shadow-xl group inline-flex"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all duration-300 shadow-xl group"
           >
             Let's collaborate 
             <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
+
+          <a 
+            href="/images/CV_Aboubekrin_Sedigh.docx"
+            download
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-bold hover:bg-white/10 hover:scale-105 transition-all duration-300 shadow-xl group"
+          >
+            Download CV
+            <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
+          </a>
         </div>
       </motion.div>
 
-      {/* Right Side Social Pills */}
+      {/* Social Pills */}
       <motion.div 
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 md:right-10 z-30 flex flex-col gap-3"
+        className="relative md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 z-30 flex flex-row md:flex-col flex-wrap justify-center gap-3 mt-12 md:mt-0 px-6 md:px-0"
       >
         <SocialButton icon={<Code size={18}/>} label="GitHub" href="https://github.com/Sedigh26" />
         <SocialButton icon={<User size={18}/>} label="LinkedIn" href="https://www.linkedin.com/in/aboubekrin-sedigh-ba6415369/" />

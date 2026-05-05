@@ -17,7 +17,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <span className="text-2xl font-bold font-heading text-white tracking-tight">Sovereign</span>
             <p className="text-sm text-gray-400 mt-2 font-medium">
-              Building Sovereign Systems & Enterprise Solutions.
+              Building Sovereign Systems &amp; Enterprise Solutions.
             </p>
           </div>
           
@@ -44,7 +44,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
           <p>© {new Date().getFullYear()} Sovereign Systems. All rights reserved.</p>
           <p>
-            Powered by <span className="text-gray-300 font-bold">Next.js</span> & <span className="text-gray-300 font-bold">Vercel</span>
+            Powered by <span className="text-gray-300 font-bold">Next.js</span> &amp; <span className="text-gray-300 font-bold">Vercel</span>
           </p>
         </div>
       </div>

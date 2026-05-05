@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X, Download } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -89,6 +89,14 @@ export function Navigation() {
             >
               Let's Talk <ArrowUpRight size={18} />
             </Link>
+            <a 
+              href="/images/CV_Aboubekrin_Sedigh.docx"
+              download
+              className="flex items-center justify-center gap-2 bg-white/10 text-white px-6 py-3 rounded-full text-base font-bold mt-2 border border-white/10"
+              onClick={() => setIsOpen(false)}
+            >
+              Download CV <Download size={18} />
+            </a>
           </div>
         </motion.div>
       )}
